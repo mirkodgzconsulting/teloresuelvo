@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default function HomeIt() {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [submitting, setSubmitting] = useState<null | "now" | "installments">(null);
@@ -24,12 +24,12 @@ export default function Home() {
         body: JSON.stringify({ description, amount, mode }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data?.error || "Error al crear la sesión");
+      if (!res.ok) throw new Error(data?.error || "Errore creazione sessione");
       if (data?.url) {
         window.location.href = data.url as string;
       }
     } catch (e) {
-      alert("Error al iniciar el pago. Inténtalo de nuevo.");
+      alert("Errore nell'avvio del pagamento. Riprova.");
       console.error(e);
     } finally {
       setSubmitting(null);
@@ -42,23 +42,21 @@ export default function Home() {
       <div className="bg-shape shape-2" />
 
       <div className="container">
-        {/* Decorative element for the glass card */}
         <div className="card">
           <div style={{ position: "absolute", top: 16, right: 16 }}>
             <Link
-              href="/it"
+              href="/"
               className="flex items-center gap-2 px-3 py-1.5 hover:bg-white/10 transition-all duration-300 group cursor-pointer rounded-lg"
-              aria-label="Cambiar idioma a italiano"
-              title="Italiano"
+              aria-label="Cambia lingua a spagnolo"
+              title="Español"
             >
               <span className="w-5 h-5 flex items-center justify-center">
                 <svg viewBox="0 0 3 2" className="w-full h-full rounded-sm">
-                  <rect width="1" height="2" fill="#009246" />
-                  <rect x="1" width="1" height="2" fill="#fff" />
-                  <rect x="2" width="1" height="2" fill="#ce2b37" />
+                  <rect width="3" height="2" fill="#c60b1e" />
+                  <rect y="0.5" width="3" height="1" fill="#ffc400" />
                 </svg>
               </span>
-              <span className="text-[13px] uppercase tracking-widest text-white font-medium">IT</span>
+              <span className="text-[13px] uppercase tracking-widest text-white font-medium">ES</span>
             </Link>
           </div>
 
@@ -72,25 +70,25 @@ export default function Home() {
             />
           </div>
 
-          <p className="subtitle">Acepta pagos online y ofrece pagos a plazos</p>
+          <p className="subtitle">Accetta pagamenti online e offri pagamenti a rate</p>
 
           <div className="form-group">
             <label htmlFor="description" className="label">
-              Descripción del pago
+              Descrizione pagamento
             </label>
             <input
               id="description"
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Ej. Vuelo i/v Lima - Milán"
+              placeholder="Es. Volo A/R Lima - Milano"
               className="input"
             />
           </div>
 
           <div className="form-group">
             <label htmlFor="amount" className="label">
-              Importe (EUR)
+              Importo (EUR)
             </label>
             <input
               id="amount"
@@ -99,7 +97,7 @@ export default function Home() {
               min="0"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              placeholder="Ej. 1200.00"
+              placeholder="Es. 1200.00"
               className="input"
             />
           </div>
@@ -110,7 +108,7 @@ export default function Home() {
               disabled={!valid || submitting !== null}
               className={`button button-primary ${submitting === "now" ? "loading" : ""}`}
             >
-              {submitting === "now" ? "Redirigiendo..." : "AHORA"}
+              {submitting === "now" ? "Reindirizzamento..." : "Ora"}
             </button>
 
             <button
@@ -118,7 +116,7 @@ export default function Home() {
               disabled={!valid || submitting !== null}
               className={`button button-secondary ${submitting === "installments" ? "loading" : ""}`}
             >
-              {submitting === "installments" ? "Redirigiendo..." : "EN CUOTAS "}
+              {submitting === "installments" ? "Reindirizzamento..." : "A rate"}
             </button>
           </div>
         </div>
@@ -126,3 +124,4 @@ export default function Home() {
     </main>
   );
 }
+

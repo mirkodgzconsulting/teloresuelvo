@@ -9,7 +9,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "Te Lo Resuelvo Viajes",
-  description: "Accetta pagamenti online con carta, Klarna e abbonamenti.",
+  description: "Acepta pagos online con tarjeta, Klarna y pagos a plazos.",
   robots: {
     index: false,
     follow: false,
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Te Lo Resuelvo Viajes",
-    description: "Accetta pagamenti online con carta, Klarna e abbonamenti.",
+    description: "Acepta pagos online con tarjeta, Klarna y pagos a plazos.",
     siteName: "Te Lo Resuelvo Viajes",
     type: "website",
   },
@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it">
+    <html lang="es">
       <body className={`${outfit.variable} font-sans antialiased`}>
         {children}
       </body>
