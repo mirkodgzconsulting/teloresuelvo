@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { LockKeyhole } from "lucide-react";
 
 export default function Home() {
   const [description, setDescription] = useState("");
@@ -102,6 +103,54 @@ export default function Home() {
             >
               {submitting === "installments" ? "Redirigiendo..." : "EN CUOTAS"}
             </button>
+          </div>
+
+          <div
+            style={{
+              marginTop: "1rem",
+              paddingTop: "0.9rem",
+              borderTop: "1px solid rgba(148, 163, 184, 0.25)",
+              textAlign: "center",
+              color: "#64748b",
+              fontSize: "0.82rem",
+            }}
+          >
+            <p style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontWeight: 600 }}>
+              <LockKeyhole size={14} />
+              Pago seguro con Stripe
+            </p>
+            <p style={{ marginTop: "0.3rem" }}>
+              Serás redirigido a Stripe para completar el pago.
+            </p>
+            <p style={{ marginTop: "0.3rem" }}>
+              Powered by{" "}
+              <a
+                href="https://stripe.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                Stripe
+              </a>
+              {" · "}
+              <a
+                href="https://stripe.com/legal/consumer"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                Términos
+              </a>
+              {" · "}
+              <a
+                href="https://stripe.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                Privacidad
+              </a>
+            </p>
           </div>
         </div>
       </div>

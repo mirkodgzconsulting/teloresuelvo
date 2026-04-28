@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { LockKeyhole } from "lucide-react";
 
 export default function HomeIt() {
   const [description, setDescription] = useState("");
@@ -118,6 +119,54 @@ export default function HomeIt() {
             >
               {submitting === "installments" ? "Reindirizzamento..." : "A rate"}
             </button>
+          </div>
+
+          <div
+            style={{
+              marginTop: "1rem",
+              paddingTop: "0.9rem",
+              borderTop: "1px solid rgba(148, 163, 184, 0.25)",
+              textAlign: "center",
+              color: "#64748b",
+              fontSize: "0.82rem",
+            }}
+          >
+            <p style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontWeight: 600 }}>
+              <LockKeyhole size={14} />
+              Pagamento sicuro con Stripe
+            </p>
+            <p style={{ marginTop: "0.3rem" }}>
+              Verrai reindirizzato a Stripe per completare il pagamento.
+            </p>
+            <p style={{ marginTop: "0.3rem" }}>
+              Powered by{" "}
+              <a
+                href="https://stripe.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                Stripe
+              </a>
+              {" · "}
+              <a
+                href="https://stripe.com/legal/consumer"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                Termini
+              </a>
+              {" · "}
+              <a
+                href="https://stripe.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                Privacy
+              </a>
+            </p>
           </div>
         </div>
       </div>
