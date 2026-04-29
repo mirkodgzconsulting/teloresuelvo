@@ -1,14 +1,21 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { LockKeyhole } from "lucide-react";
 
 export default function HomeIt() {
+  const [showLoader, setShowLoader] = useState(true);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [submitting, setSubmitting] = useState<null | "now" | "installments">(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLoader(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const valid = useMemo(() => {
     const n = parseFloat(amount);
@@ -37,6 +44,24 @@ export default function HomeIt() {
     }
   }
 
+  if (showLoader) {
+    return (
+      <div className="page-loader">
+        <div className="page-loader-inner">
+          <Image
+            src="/LogoTeLoResuelvoPNG.png"
+            alt="Te Lo Resuelvo Viajes"
+            width={150}
+            height={150}
+            className="page-loader-logo"
+            priority
+          />
+          <div className="page-loader-spinner" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <main>
       <div className="bg-shape shape-1" />
@@ -45,19 +70,17 @@ export default function HomeIt() {
       <div className="container">
         <div className="card">
           <div style={{ position: "absolute", top: 16, right: 16 }}>
+            <p style={{ fontSize: "0.68rem", color: "#64748b", textAlign: "right", marginBottom: "0.2rem", fontWeight: 600 }}>
+              Cambia lingua
+            </p>
             <Link
               href="/"
-              className="flex items-center gap-2 px-3 py-1.5 hover:bg-white/10 transition-all duration-300 group cursor-pointer rounded-lg"
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-300 hover:bg-slate-100 hover:border-slate-400 transition-all duration-200 cursor-pointer rounded-lg shadow-sm"
               aria-label="Cambia lingua a spagnolo"
               title="Español"
             >
-              <span className="w-5 h-5 flex items-center justify-center">
-                <svg viewBox="0 0 3 2" className="w-full h-full rounded-sm">
-                  <rect width="3" height="2" fill="#c60b1e" />
-                  <rect y="0.5" width="3" height="1" fill="#ffc400" />
-                </svg>
-              </span>
-              <span className="text-[13px] uppercase tracking-widest text-white font-medium">ES</span>
+              <span className="text-sm">🇪🇸</span>
+              <span className="text-[13px] uppercase tracking-widest text-black font-semibold">ESP</span>
             </Link>
           </div>
 
@@ -71,7 +94,7 @@ export default function HomeIt() {
             />
           </div>
 
-          <p className="subtitle">Accetta pagamenti online e offri pagamenti a rate</p>
+          <p className="subtitle">TLR TRAVEL ITALY SRL ACCETTA PAGAMENTI ONLINE E OFFRE PAGAMENTI A RATE.</p>
 
           <div className="form-group">
             <label htmlFor="description" className="label">

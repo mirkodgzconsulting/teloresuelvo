@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #ffffff;
-  --secondary: #d4d4d8;
-  --primary-hover: #f4f4f5;
-  --secondary-hover: #a1a1aa;
-  --neutral-dark: #ffffff;
-  --background: #09090b;
-  --surface: rgba(24, 24, 27, 0.85);
-  --surface-hover: rgba(39, 39, 42, 0.95);
-  --text-primary: #f4f4f5;
-  --text-secondary: #a1a1aa;
-  --border: rgba(82, 82, 91, 0.8);
-  --border-focus: rgba(255, 255, 255, 0.28);
+  --primary: #0a0a0a;
+  --secondary: #111111;
+  --primary-hover: #171717;
+  --secondary-hover: #1f1f1f;
+  --neutral-dark: #111827;
+  --background: #a8dcf9;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-hover: rgba(255, 255, 255, 0.98);
+  --text-primary: #111827;
+  --text-secondary: #475569;
+  --border: rgba(203, 213, 225, 0.95);
+  --border-focus: rgba(15, 23, 42, 0.16);
   
   /* Modern Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 15px rgba(255, 255, 255, 0.15);
+  --shadow-glow: 0 0 15px rgba(15, 23, 42, 0.15);
   
   /* Glassmorphism */
-  --glass-bg: rgba(24, 24, 27, 0.7);
-  --glass-border: rgba(82, 82, 91, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(226, 232, 240, 0.85);
   --glass-blur: blur(16px);
 }
 
@@ -43,7 +43,7 @@ body {
 
 /* Animated Gradient Background */
 body {
-  background: linear-gradient(-45deg, #09090b, #111114, #18181b, #0a0a0b);
+  background: linear-gradient(-45deg, #a8dcf9, #bde5fb, #a8dcf9, #9fd7f6);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   color: var(--text-primary);
@@ -56,6 +56,40 @@ body {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+.page-loader {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, #a8dcf9, #bde5fb, #a8dcf9, #9fd7f6);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+.page-loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.page-loader-logo {
+  filter: drop-shadow(0 6px 18px rgba(15, 23, 42, 0.25));
+}
+
+.page-loader-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 3px solid rgba(15, 23, 42, 0.18);
+  border-top-color: #0f172a;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 a {
@@ -97,7 +131,7 @@ a {
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, #ffffff, #a1a1aa);
+  background: linear-gradient(90deg, #111827, #334155);
 }
 
 .logo {
@@ -161,7 +195,7 @@ a {
   font-size: 1rem;
   font-family: inherit;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: rgba(9, 9, 11, 0.8);
+  background: #ffffff;
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
 }
@@ -169,13 +203,13 @@ a {
 .input:focus {
   outline: none;
   border-color: var(--primary);
-  background: rgba(9, 9, 11, 0.95);
+  background: #ffffff;
   box-shadow: 0 0 0 4px var(--border-focus), var(--shadow-glow);
   transform: translateY(-1px);
 }
 
 .input::placeholder {
-  color: #71717a;
+  color: #94a3b8;
   font-weight: 400;
 }
 
@@ -233,26 +267,26 @@ a {
 }
 
 .button-primary {
-  background: linear-gradient(135deg, #ffffff, #e4e4e7);
-  color: #09090b;
-  box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.16);
+  background: linear-gradient(135deg, #0a0a0a, #1f2937);
+  color: #ffffff;
+  box-shadow: 0 4px 14px 0 rgba(15, 23, 42, 0.28);
 }
 
 .button-primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.22);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.36);
 }
 
 .button-secondary {
-  background: linear-gradient(135deg, #27272a, #3f3f46);
+  background: linear-gradient(135deg, #111827, #1f2937);
   color: #ffffff;
-  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(113, 113, 122, 0.45);
+  box-shadow: 0 4px 14px 0 rgba(15, 23, 42, 0.28);
+  border: 1px solid rgba(30, 41, 59, 0.4);
 }
 
 .button-secondary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.36);
 }
 
 .button-success {
@@ -295,7 +329,7 @@ a {
 .shape-1 {
   width: 400px;
   height: 400px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.28);
   top: -100px;
   left: -100px;
   animation: float 10s ease-in-out infinite;
@@ -304,7 +338,7 @@ a {
 .shape-2 {
   width: 300px;
   height: 300px;
-  background: rgba(161, 161, 170, 0.16);
+  background: rgba(96, 165, 250, 0.22);
   bottom: -50px;
   right: -50px;
   animation: float 12s ease-in-out infinite reverse;
