@@ -80,7 +80,13 @@ export default function Home() {
               aria-label="Cambiar idioma a italiano"
               title="Italiano"
             >
-              <span className="text-sm">🇮🇹</span>
+              <span className="w-4 h-4 flex items-center justify-center">
+                <svg viewBox="0 0 3 2" className="w-full h-full rounded-sm">
+                  <rect width="1" height="2" fill="#009246" />
+                  <rect x="1" width="1" height="2" fill="#fff" />
+                  <rect x="2" width="1" height="2" fill="#ce2b37" />
+                </svg>
+              </span>
               <span className="text-[13px] uppercase tracking-widest text-black font-semibold">ITA</span>
             </Link>
           </div>

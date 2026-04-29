@@ -79,7 +79,12 @@ export default function HomeIt() {
               aria-label="Cambia lingua a spagnolo"
               title="Español"
             >
-              <span className="text-sm">🇪🇸</span>
+              <span className="w-4 h-4 flex items-center justify-center">
+                <svg viewBox="0 0 3 2" className="w-full h-full rounded-sm">
+                  <rect width="3" height="2" fill="#c60b1e" />
+                  <rect y="0.5" width="3" height="1" fill="#ffc400" />
+                </svg>
+              </span>
               <span className="text-[13px] uppercase tracking-widest text-black font-semibold">ESP</span>
             </Link>
           </div>
