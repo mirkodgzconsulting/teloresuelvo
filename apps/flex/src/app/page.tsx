@@ -76,18 +76,17 @@ export default function Home() {
             </p>
             <Link
               href="/it"
-              className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-300 hover:bg-slate-100 hover:border-slate-400 transition-all duration-200 cursor-pointer rounded-lg shadow-sm"
+              className="flex w-full justify-end items-center gap-2 px-3 py-1.5 bg-white border border-slate-300 hover:bg-slate-100 hover:border-slate-400 transition-all duration-200 cursor-pointer rounded-lg shadow-sm"
               aria-label="Cambiar idioma a italiano"
               title="Italiano"
             >
-              <span className="w-4 h-4 flex items-center justify-center">
-                <svg viewBox="0 0 3 2" className="w-full h-full rounded-sm">
+              <span style={{ width: 19, height: 15, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                <svg viewBox="0 0 3 2" style={{ width: "100%", height: "100%", borderRadius: 2, display: "block" }}>
                   <rect width="1" height="2" fill="#009246" />
                   <rect x="1" width="1" height="2" fill="#fff" />
                   <rect x="2" width="1" height="2" fill="#ce2b37" />
                 </svg>
               </span>
-              <span className="text-[13px] uppercase tracking-widest text-black font-semibold">ITA</span>
             </Link>
           </div>
 
